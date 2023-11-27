@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package com.mcss.grpc;
+
+option java_multiple_files = true;
+option java_package = "com.mcss.grpc.lib";
+option java_outer_classname = "UserProto";
+
+service UserReadService {
+  rpc ReadUser (UserReadRequest) returns (UserReadResponse) {}
+}
+
+message UserReadRequest {
+  string id = 1;
+}
+
+message UserReadResponse {
+
+  string id = 1;
+  optional string name = 2;
+  optional string email = 3;
+  optional string password = 4;
+  repeated string courses = 5;
+
+}
